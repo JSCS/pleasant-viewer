@@ -2,12 +2,12 @@
   <form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="post" enctype="multipart/form-data">
 
     <div style="width: 30%; float: left;">
-      <input type="text" name="post_topic" size="60" style="width: 80%; margin: 5px;" value="<?php echo strip_tags(stripslashes($_POST['post_topic'])); ?>" /><br>
-      <select name="post_category_id" style="margin: 5px;"><?php echo $category_options; ?></select>
+      <input type="text" id="name" name="post_topic" size="60" style="width: 80%; margin: 5px;font-size:20px;border:none;cursor:pointer;" value="<?php echo strip_tags(stripslashes($_POST['post_topic'])); ?>" /><br>
+      <select name="post_category_id" style="margin: 5px;margin-left:15px;"><?php echo $category_options; ?></select>
     </div>
 
     <div style="float: left; width: 60%;">
-      <textarea name="post_introduction" rows="3" cols="20" style="width: 80%;"><?php echo strip_tags(stripslashes($_POST['post_introduction'])); ?></textarea>
+      <textarea id="description" name="post_introduction" rows="3" cols="20" style="width: 80%;font-size:12px;color:grey;"><?php echo strip_tags(stripslashes($_POST['post_introduction'])); ?></textarea>
     </div>
 
     
@@ -27,7 +27,7 @@
 
     
 
-    <div style="clear: both;"><input type="submit" name="submit" value="Submit" /></div>
+
     
   </form>
 </div>

@@ -37,7 +37,7 @@ $j(function(){
     reload_citation();
   }
   function reload_citation(){
-    $j('#tooltip').text("Looking up citation, keep typing if I don't find anything..");    
+    $j('#tooltip').text("Busy, keep typing..");    
     console.log(current_line());    
     
       if (!isNaN($j('#citations').val().charAt(0))) {
@@ -56,12 +56,22 @@ $j(function(){
       }
       $j('#citation_citation_'+cl).text(citation.citation);
       $j('#citation_text_'+cl).text(citation.text);  
-      $j('#tooltip').text("Citation retrieved, hit enter for the next one..");
+      $j('#tooltip').text("Done, hit enter for the next one..");
     });
   }
 
   $j('#citations').change(update_preview);
-  $j('#citations').keyup(update_preview);  
+  $j('#citations').keyup(update_preview);    
+  
+  
+  $j("#name").click(function(){
+    if ($j("#name").val() == 'New Inspiration' ) {$j(this).select();}
+  });
+  $j("#description").click(function(){
+    if ($j('#description').val() == 'This is a little introduction on my citations..') {$j(this).select();}
+  });
+  
+  
   
   update_preview();
   console.log('just loaded citations');
@@ -73,6 +83,12 @@ $j(function(){
 $j( document ).ready(function() {
   $j('#citations').focus();
   $j('#citations').val("Gen. 12:1-4 the (to :)");
+  if ($j('#name').val().length == 0) {
+    $j('#name').val('New Inspiration');
+  }
+  if ($j('#description').val().length == 0) {
+    $j('#description').val('This is a little introduction on my citations..');
+  }
   update_preview();
 });
 
